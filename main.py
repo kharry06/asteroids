@@ -26,21 +26,20 @@ def main():
     while True:
         log_state()
 
-        #X button
+        # 1. Handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
-            
-        #Screen fill
+
+        # 2. Update player
+        player_one.update(dt)
+
+        # 3. Drawing
         screen.fill("black")
-
-        #Draw Player
         player_one.draw(screen)
-
-        #Refresh Display
         pygame.display.flip()
-        
-        #60fps
+
+        # 4. Tick for 60 FPS
         dt = clock.tick(60) / 1000
 
 if __name__ == "__main__":
